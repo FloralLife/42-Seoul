@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 15:09:47 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/23 17:52:59 by yunolee          ###   ########.fr       */
+/*   Created: 2021/05/23 17:49:23 by yunolee           #+#    #+#             */
+/*   Updated: 2021/05/23 17:50:10 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#ifndef LIBFT_H
+# define LIBFT_H
 
-void	*ft_memset(void *ptr, int value, size_t len)
-{
-	char *str;
+# include <stdlib.h>
 
-	str = (char*)ptr;
-	while (len--)
-	{
-		*str++ = value;
-	}
-	return (ptr);
-}
+#endif
