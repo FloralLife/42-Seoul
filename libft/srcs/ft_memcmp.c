@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 17:56:12 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/23 19:25:22 by yunolee          ###   ########.fr       */
+/*   Created: 2021/05/27 00:56:19 by yunolee           #+#    #+#             */
+/*   Updated: 2021/05/27 00:56:19 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	*memmove(void *dest, const void *src, size_t len)
+int	memcmp(const void *ptr1, const void *ptr2, sizt_t n)
 {
-	char	*new_dest;
-	char	*new_src;
+	unsigned char	*a;
+	unsigned char	*b;
 
-	if (dest <= src)
+	a = ptr1;
+	b = ptr2;
+	if (n == 0)
+		return (0);
+	while (n--)
 	{
-		new_dest = (char*)dest;
-		new_src = (char*)src;
-		while (len--)
-			*new_dest++ = *new_src;
+		if (*a != *b)
+			return (*a - *b);
+		a++;
+		b++;
 	}
-	else {
-		new_dest = (char*)dest + len - 1;
-		new_src = (char*)src + len - 1;
-		while (len--)
-			*new_dest-- = *new_src;
-	}
-	return (dest);
+	return (0);
 }

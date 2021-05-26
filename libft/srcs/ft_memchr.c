@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 17:56:12 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/23 19:25:22 by yunolee          ###   ########.fr       */
+/*   Created: 2021/05/27 00:49:49 by yunolee           #+#    #+#             */
+/*   Updated: 2021/05/27 00:49:49 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	*memmove(void *dest, const void *src, size_t len)
+void	*memchr(const void *ptr, int value, size_t n)
 {
-	char	*new_dest;
-	char	*new_src;
+	unsigned char	*str;
 
-	if (dest <= src)
-	{
-		new_dest = (char*)dest;
-		new_src = (char*)src;
-		while (len--)
-			*new_dest++ = *new_src;
-	}
-	else {
-		new_dest = (char*)dest + len - 1;
-		new_src = (char*)src + len - 1;
-		while (len--)
-			*new_dest-- = *new_src;
-	}
-	return (dest);
+	str = ptr;
+	while (n--)
+		if (*str++ == value)
+			return (--str);
+	return (0);
 }
