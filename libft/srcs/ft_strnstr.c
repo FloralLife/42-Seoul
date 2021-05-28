@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrcht.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 03:03:29 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/28 03:03:29 by yunolee          ###   ########.fr       */
+/*   Created: 2021/05/28 14:09:34 by yunolee           #+#    #+#             */
+/*   Updated: 2021/05/28 14:09:34 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strnstr(const char *str, const char *find, size_t n)
 {
-	int i;
+	size_t i;
+	size_t j;
+	size_t str_len;
+	size_t find_len;
 
-	i = ft_strlen(str);
-	while (i >= 0)
+	i = 0;
+	str_len = ft_strlen(str);
+	find_len = ft_strlen(find);
+	if (*find == 0)
+		return (str);
+	while (i <= str_len - find_len && i <= n - find_len)
 	{
-		if (str[i] == c)
-			return (str + i);
-		i--;
+		if (str[i] == find[0])
+		{
+			j = 1;
+			while (str[i + j] == find[j])
+			{
+				if (find[++j] == 0)
+					return (&str[i]);
+			}
+		}
+		i++;
 	}
 	return (0);
 }

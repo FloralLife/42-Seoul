@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 NAME = libft.a
 SRCDIR = srcs
-FILES = $(addprefix $(SRCDIR)/, ft_memset ft_bzero ft_memcpy ft_nemmove ft_memchr ft_memcmp ft_strlen ft_strlcpy ft_strchr ft_strrchr)
+FILES = $(addprefix $(SRCDIR)/, ft_memset ft_bzero ft_memcpy ft_nemmove ft_memchr ft_memcmp ft_strlen ft_strlcpy ft_strchr ft_strrchr ft_strnstr)
 SRCS = $(addsuffix .c, $(FILES))
 OBJS = $(addsuffix .o, $(FILES))
 
