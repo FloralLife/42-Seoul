@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *str, const char *find, size_t n)
 {
@@ -32,7 +32,7 @@ char	*ft_strnstr(const char *str, const char *find, size_t n)
 			while (str[i + j] == find[j])
 			{
 				if (find[++j] == 0)
-					return (&str[i]);
+					return (str + i);
 			}
 		}
 		i++;

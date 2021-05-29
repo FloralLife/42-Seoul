@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 00:56:19 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/27 00:56:19 by yunolee          ###   ########.fr       */
+/*   Created: 2021/05/29 18:33:08 by yunolee           #+#    #+#             */
+/*   Updated: 2021/05/29 18:33:08 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
+void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	unsigned char	*a;
-	unsigned char	*b;
+	void *ret;
 
-	a = ptr1;
-	b = ptr2;
-	if (n == 0)
+	ret = malloc(nelem * elsize);
+	if (ret == NULL)
 		return (0);
-	while (n--)
-	{
-		if (*a != *b)
-			return (*a - *b);
-		a++;
-		b++;
-	}
-	return (0);
+	ft_memset(ret, 0, nelem * elsize);
+	return (ret);
 }

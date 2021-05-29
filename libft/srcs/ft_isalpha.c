@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 00:56:19 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/27 00:56:19 by yunolee          ###   ########.fr       */
+/*   Created: 2021/05/29 15:16:37 by yunolee           #+#    #+#             */
+/*   Updated: 2021/05/29 15:16:37 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
+int		isalpha(int c)
 {
-	unsigned char	*a;
-	unsigned char	*b;
-
-	a = ptr1;
-	b = ptr2;
-	if (n == 0)
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	else if (c >= 'a' && c <= 'z')
+		return (2);
+	else
 		return (0);
-	while (n--)
-	{
-		if (*a != *b)
-			return (*a - *b);
-		a++;
-		b++;
-	}
-	return (0);
 }

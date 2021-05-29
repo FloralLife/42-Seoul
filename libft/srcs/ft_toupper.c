@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 00:56:19 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/27 00:56:19 by yunolee          ###   ########.fr       */
+/*   Created: 2021/05/29 16:18:03 by yunolee           #+#    #+#             */
+/*   Updated: 2021/05/29 16:18:03 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
+int		ft_toupper(int c)
 {
-	unsigned char	*a;
-	unsigned char	*b;
-
-	a = ptr1;
-	b = ptr2;
-	if (n == 0)
-		return (0);
-	while (n--)
-	{
-		if (*a != *b)
-			return (*a - *b);
-		a++;
-		b++;
-	}
-	return (0);
+	if (ft_isalpha(c) == 1)
+		return (c - 'A' + 'a');
 }

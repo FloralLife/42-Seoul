@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 00:56:19 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/27 00:56:19 by yunolee          ###   ########.fr       */
+/*   Created: 2021/05/29 14:49:33 by yunolee           #+#    #+#             */
+/*   Updated: 2021/05/29 14:49:33 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
+char	*ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char	*a;
-	unsigned char	*b;
-
-	a = ptr1;
-	b = ptr2;
 	if (n == 0)
 		return (0);
-	while (n--)
+	while (n-- && *s1 && *s1 == *s2)
 	{
-		if (*a != *b)
-			return (*a - *b);
-		a++;
-		b++;
+		if (n == 0)
+			break ;
+		s1++;
+		s2++;
 	}
-	return (0);
+	return (*s1 - *s2);
 }

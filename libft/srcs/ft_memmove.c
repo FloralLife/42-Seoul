@@ -10,25 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-void	*memmove(void *dest, const void *src, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	char	*new_dest;
-	char	*new_src;
+	unsigned char	*new_dest;
+	unsigned char	*new_src;
 
 	if (dest <= src)
 	{
-		new_dest = (char*)dest;
-		new_src = (char*)src;
+		new_dest = (unsigned char*)dest;
+		new_src = (unsigned char*)src;
 		while (len--)
-			*new_dest++ = *new_src;
+			*new_dest++ = *new_src++;
 	}
 	else {
-		new_dest = (char*)dest + len - 1;
-		new_src = (char*)src + len - 1;
+		new_dest = (unsigned char*)dest + len - 1;
+		new_src = (unsigned char*)src + len - 1;
 		while (len--)
-			*new_dest-- = *new_src;
+			*new_dest-- = *new_src--;
 	}
 	return (dest);
+}
+
+#include <stdio.h>
+int main(){
+	char dst[49];
+	printf("%s", (char*)ft_memmove(dst, "1234", 63));
 }
