@@ -5,10 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/02 23:57:25 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/02 23:58:01 by yunolee          ###   ########.fr       */
+/*   Created: 2021/06/03 23:29:22 by yunolee           #+#    #+#             */
+/*   Updated: 2021/06/03 23:29:32 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int		count_digit(unsigned int n)
 {
@@ -50,10 +52,4 @@ char	*ft_itoa(int n)
 	if (sign == 1)
 		a[0] = '-';
 	return (a);
-}
-
-
-#include <limits.h>
-int main(){
-	printf("%s\n", ft_itoa(INT_MAX));
 }

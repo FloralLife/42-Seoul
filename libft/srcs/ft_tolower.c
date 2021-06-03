@@ -16,4 +16,5 @@ int		ft_tolower(int c)
 {
 	if (ft_isalpha(c) == 2)
 		return (c - 'a' + 'A');
+	return (c);
 }

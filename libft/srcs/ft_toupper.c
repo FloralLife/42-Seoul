@@ -16,4 +16,5 @@ int		ft_toupper(int c)
 {
 	if (ft_isalpha(c) == 1)
 		return (c - 'A' + 'a');
+	return (c);
 }

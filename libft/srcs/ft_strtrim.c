@@ -35,7 +35,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	len = 0;
 	while (s1[i])
 	{
-		if(isSet(s1[i++]))
+		if(isSet(s1[i++], set))
 			len++;
 	}
 	str = malloc(len * sizeof(char) + 1);
@@ -45,7 +45,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	len = 0;
 	while (s1[i])
 	{
-		if (isSet(s1[i]))
+		if (isSet(s1[i], set))
 			str[len++] = s1[i];
 		i++;
 	}
