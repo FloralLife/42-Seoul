@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 16:29:48 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 16:02:32 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 17:10:58 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 		if (*n_src == c)
 		{
 			*n_dest++ = *n_src;
-			return (n_dest);
+			return ((void*)n_dest);
 		}
 		*n_dest++ = *n_src++;
 	}

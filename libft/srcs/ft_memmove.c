@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 17:56:12 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 15:55:32 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 17:22:24 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 	unsigned char	*new_dest;
 	unsigned char	*new_src;
 
+	if (!dest && !src)
+		return (0);
 	if (dest <= src)
 	{
 		new_dest = (unsigned char*)dest;

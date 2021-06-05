@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 14:09:34 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 15:39:38 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 19:01:51 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ char	*ft_strnstr(const char *str, const char *find, size_t n)
 	i = 0;
 	str_len = ft_strlen(str);
 	find_len = ft_strlen(find);
-	if (*find == 0)
-		return (char*)(str);
-	while (i <= str_len - find_len && i <= n - find_len)
+	if (find_len == 0)
+		return ((char*)str);
+	while (i + find_len <= str_len && i + find_len <= n)
 	{
 		if (str[i] == find[0])
 		{
@@ -32,7 +32,7 @@ char	*ft_strnstr(const char *str, const char *find, size_t n)
 			while (str[i + j] == find[j])
 			{
 				if (find[++j] == 0)
-					return (char*)(str + i);
+					return ((char*)str + i);
 			}
 		}
 		i++;
