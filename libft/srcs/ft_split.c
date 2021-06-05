@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 01:34:50 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 16:02:10 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 19:11:38 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,11 @@ char	**ft_split(char const *s, char c)
 	}
 	str[cnt] = 0;
 	return (str);
+}
+
+int main(){
+	char **res = ft_split("he llo ", ' ');
+	for(int i = 0;i<5;i++){
+		printf("%s\n", res[i]);
+	}
 }
