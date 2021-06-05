@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 15:04:06 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/29 15:04:06 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 15:47:21 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_atoi(const char *str)
 	while (*str)
 	{
 		if ((*str < 9 || *str > 13) && *str != ' ')
-			break;
+			break ;
 		str++;
 	}
 	if (*str == '-' || *str == '+')

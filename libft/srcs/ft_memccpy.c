@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 16:29:48 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/30 16:29:48 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 16:02:32 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,4 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 		*n_dest++ = *n_src++;
 	}
 	return (NULL);
-}
-
-int main(){
-	char dest[40];
-	char *src = "helloworld";
-	ft_memccpy(dest, src, 'l', 9);
-	printf("%s\n", dest);
 }

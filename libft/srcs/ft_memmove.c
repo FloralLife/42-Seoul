@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 17:56:12 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/23 19:25:22 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 15:55:32 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,12 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 		while (len--)
 			*new_dest++ = *new_src++;
 	}
-	else {
+	else
+	{
 		new_dest = (unsigned char*)dest + len - 1;
 		new_src = (unsigned char*)src + len - 1;
 		while (len--)
 			*new_dest-- = *new_src--;
 	}
 	return (dest);
-}
-
-#include <stdio.h>
-int main(){
-	char dst[49];
-	printf("%s", (char*)ft_memmove(dst, "1234", 63));
 }

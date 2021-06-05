@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 17:01:25 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/30 17:01:25 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 15:59:40 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	str[i] = 0;
 	return (str);
-}
-
-#include <string.h>
-int main(){
-
-	printf("%s\n", ft_substr("1234567890", 0, 1));
 }

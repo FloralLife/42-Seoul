@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 17:37:41 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/30 17:37:41 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 15:58:54 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		*str++ = s2[i++];
 	*str = 0;
 	return (ret);
-}
-
-int main(){
-	printf("%s\n", ft_strjoin("hello world", "\n"));
 }

@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 15:55:06 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/23 17:50:34 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 15:33:42 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,4 @@ void	*ft_memcpy(void *dest, const void *src, size_t len)
 	while (len--)
 		*n_dest++ = *n_src++;
 	return (dest);
-}
-
-#include <stdio.h>
-int main(){
-	char *dest = NULL;
-	char *src = NULL;
-	printf("%s", (char*)memcpy(dest, src, 6));
 }
