@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 01:34:50 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 19:11:38 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 19:15:47 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		count_split(char const *s, char c)
 	int		cnt;
 
 	i = 0;
-	before = 1;
+	before = 0;
 	cnt = 0;
 	while (s[i])
 	{
@@ -85,11 +85,4 @@ char	**ft_split(char const *s, char c)
 	}
 	str[cnt] = 0;
 	return (str);
-}
-
-int main(){
-	char **res = ft_split("he llo ", ' ');
-	for(int i = 0;i<5;i++){
-		printf("%s\n", res[i]);
-	}
 }
