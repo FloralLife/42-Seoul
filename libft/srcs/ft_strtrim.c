@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:54:38 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 16:19:25 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 16:47:00 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,26 @@ int		isset(char c, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
-	int		len;
+	int		start;
+	int		end;
 	int		i;
+	int		len;
 
-	i = 0;
-	len = 0;
-	while (s1[i])
-	{
-		if (isset(s1[i++], set))
-			len++;
-	}
-	str = malloc(len * sizeof(char) + 1);
+	start = 0;
+	end = ft_strlen(s1) - 1;
+	while (start <= end && isset(s1[start], set))
+		start++;
+	while (start <= end && isset(s1[end], set))
+		end--;
+	len = end - start + 1;
+	str = malloc(len + 1);
 	if (str == NULL)
 		return (0);
 	i = 0;
-	len = 0;
-	while (s1[i])
+	while (i < len)
 	{
-		if (isset(s1[i], set))
-			str[len++] = s1[i];
-		i++;
+		str[i++] = s1[start++];
 	}
+	str[len] = 0;
 	return (str);
 }

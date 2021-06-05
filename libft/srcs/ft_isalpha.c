@@ -6,13 +6,13 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 15:16:37 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/29 15:16:37 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/05 16:24:34 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		isalpha(int c)
+int		ft_isalpha(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (1);
