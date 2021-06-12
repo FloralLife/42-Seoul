@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 23:56:54 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 15:59:12 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/12 14:04:41 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		num = -n;
 		ft_putchar_fd('-', fd);
+	}
+	else if (n == 0)
+	{
+		ft_putchar_fd('0', fd);
 	}
 	write_nbr(num, fd);
 }

@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 23:57:09 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 17:16:27 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/12 14:36:45 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (str == NULL)
 		return (NULL);
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
 		str[i] = f(i, s[i]);
 		i++;

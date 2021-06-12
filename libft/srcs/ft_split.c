@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 01:34:50 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 19:15:47 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/12 18:49:04 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,11 @@ char	**ft_split(char const *s, char c)
 	}
 	str[cnt] = 0;
 	return (str);
+}
+
+int main(){
+	char **spl = ft_split(" 1 2 3 4 5         " ,  ' ');
+	for(int i = 0; i< 8; i++){
+		printf("[%s]\n", spl[i]);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 23:29:22 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 19:00:50 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/12 19:55:04 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ char	*ft_itoa(int n)
 	i = sign;
 	i += count_digit(num);
 	a = malloc(i + 1);
+	if (a == NULL)
+		return (NULL);
 	a[i--] = 0;
 	fill_a(num, a, i);
 	if (sign == 1)

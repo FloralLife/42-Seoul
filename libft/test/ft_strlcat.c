@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 16:49:05 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 16:51:45 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/12 20:25:24 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 	i = 0;
 	while (src[src_len] != 0)
 		src_len++;
+	if (size == 0)
+		return (src_len);
 	while (dest[i] != 0)
 		if (i++ < size)
 			dest_len++;

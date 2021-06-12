@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 16:19:47 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/29 16:19:47 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/12 14:06:36 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_tolower(int c)
 {
-	if (ft_isalpha(c) == 2)
-		return (c - 'a' + 'A');
+	if (ft_isalpha(c) == 1)
+		return (c - 'A' + 'a');
 	return (c);
 }

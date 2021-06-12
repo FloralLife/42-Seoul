@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 16:18:03 by yunolee           #+#    #+#             */
-/*   Updated: 2021/05/29 16:18:03 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/12 12:55:29 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_toupper(int c)
 {
-	if (ft_isalpha(c) == 1)
-		return (c - 'A' + 'a');
+	if (ft_isalpha(c) == 2)
+		return (c - 'a' + 'A');
 	return (c);
 }
