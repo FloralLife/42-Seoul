@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 16:49:05 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/12 20:42:17 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/23 13:11:20 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 		dest[i++] = *src++;
 	dest[i] = 0;
 	return (dest_len + src_len);
+}
+
+int main(){
+	char d[400];
+	printf("%d", (int)strlcat(d, NULL, 3));
 }
