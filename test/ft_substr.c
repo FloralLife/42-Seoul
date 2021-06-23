@@ -1,53 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/31 19:54:38 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 19:01:14 by yunolee          ###   ########.fr       */
+/*   Created: 2021/05/30 17:01:25 by yunolee           #+#    #+#             */
+/*   Updated: 2021/06/12 18:04:26 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		isset(char c, char const *set)
-{
-	int i;
-
-	i = 0;
-	while (set[i])
-	{
-		if (c == set[i++])
-			return (1);
-	}
-	return (0);
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
-	int		start;
-	int		end;
-	int		i;
-	int		len;
+	size_t	s_len;
+	size_t	i;
 
-	start = 0;
-	end = ft_strlen(s1) - 1;
-	while (start <= end && isset(s1[start], set))
-		start++;
-	while (start <= end && isset(s1[end], set))
-		end--;
-	len = end - start + 1;
+	if (s == NULL)
+		return (NULL);
+	s_len = ft_strlen(s);
+	if (start > s_len)
+		len = 0;
+	else if (s_len < start + len)
+		len = s_len - start;
 	str = malloc(len + 1);
 	if (str == NULL)
 		return (0);
 	i = 0;
-	while (i < len)
+	while (i < len && start + i < s_len)
 	{
-		str[i++] = s1[start++];
+		str[i] = s[start + i];
+		i++;
 	}
-	str[len] = 0;
+	str[i] = 0;
 	return (str);
 }

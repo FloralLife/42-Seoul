@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 17:49:23 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/12 20:01:34 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/23 15:11:13 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
+#include <string.h>
+#include <stdio.h>
 
 void			*ft_memset(void *ptr, int value, size_t len);
 void			ft_bzero(void *ptr, size_t n);

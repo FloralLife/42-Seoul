@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:06:26 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/12 19:52:37 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/23 22:59:44 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*))
 {
-	t_list	*lstmap;
+	t_list	*newlst;
 	t_list	*n;
 	t_list	*p;
 
 	if (lst == NULL || f == NULL || del == NULL)
 		return (NULL);
+	newlst = ft_lstnew(f(lst->content));
+	if (newlst == NULL)
+		return (NULL);
+	p = newlst;
+	lst = lst->next;
 	while (lst)
 	{
-		if ((n = ft_lstnew(f(lst->content))) == NULL)
+		n = ft_lstnew(f(lst->content));
+		if (n == NULL)
 		{
-			if (lstmap)
-				ft_lstclear(&lstmap, del);
+			ft_lstclear(&newlst, del);
 			return (NULL);
 		}
-		if (lstmap)
-			p->next = n;
-		else
-			lstmap = n;
+		p->next = n;
 		lst = lst->next;
 		p = n;
 	}
-	return (lstmap);
+	return (newlst);
 }

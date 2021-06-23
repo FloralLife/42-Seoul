@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/05 16:49:05 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/12 20:25:24 by yunolee          ###   ########.fr       */
+/*   Created: 2021/05/30 16:29:48 by yunolee           #+#    #+#             */
+/*   Updated: 2021/06/12 12:22:13 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	size_t	src_len;
-	size_t	dest_len;
-	size_t	i;
+	unsigned char	*n_dest;
+	unsigned char	*n_src;
 
-	src_len = 0;
-	dest_len = 0;
-	i = 0;
-	while (src[src_len] != 0)
-		src_len++;
-	if (size == 0)
-		return (src_len);
-	while (dest[i] != 0)
-		if (i++ < size)
-			dest_len++;
-	while (i + 1 < size && *src != 0)
-		dest[i++] = *src++;
-	dest[i] = 0;
-	return (dest_len + src_len);
+	n_dest = (unsigned char*)dest;
+	n_src = (unsigned char*)src;
+	while (n--)
+	{
+		if (*n_src == (unsigned char)c)
+		{
+			*n_dest++ = *n_src;
+			return ((void*)n_dest);
+		}
+		*n_dest++ = *n_src++;
+	}
+	return (NULL);
 }

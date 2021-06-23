@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 18:06:26 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/12 19:52:48 by yunolee          ###   ########.fr       */
+/*   Created: 2021/06/02 23:56:54 by yunolee           #+#    #+#             */
+/*   Updated: 2021/06/12 13:13:43 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*))
+void	write_nbr(unsigned int num, int fd)
 {
-	t_list	*lstmap;
-	t_list	*n;
-	t_list	*p;
+	if (num == 0)
+		return ;
+	write_nbr(num / 10, fd);
+	ft_putchar_fd(num % 10 + '0', fd);
+}
 
-	if (lst == NULL || f == NULL || del == NULL)
-		return (NULL);
-	while (lst)
+void	ft_putnbr_fd(int n, int fd)
+{
+	unsigned int num;
+
+	num = n;
+	if (n < 0)
 	{
-		if ((n = ft_lstnew(f(lst->content))) == NULL)
-		{
-			if (lstmap)
-				ft_lstclear(&lstmap, del);
-			return (NULL);
-		}
-		if (lstmap)
-			p->next = n;
-		else
-			lstmap = n;
-		lst = lst->next;
-		p = n;
+		num = -n;
+		ft_putchar_fd('-', fd);
 	}
-	return (lstmap);
+	else if (n == 0)
+	{
+		ft_putchar_fd('0', fd);
+	}
+	write_nbr(num, fd);
 }

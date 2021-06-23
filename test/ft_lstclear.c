@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 03:03:29 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 17:07:09 by yunolee          ###   ########.fr       */
+/*   Created: 2021/06/03 17:30:25 by yunolee           #+#    #+#             */
+/*   Updated: 2021/06/23 22:31:58 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	int i;
+	t_list	*node;
 
-	i = ft_strlen(str);
-	while (i >= 0)
+	if (del == NULL)
+		return ;
+	while (*lst)
 	{
-		if (str[i] == c)
-			return ((char*)str + i);
-		i--;
+		node = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = node;
 	}
-	return (0);
 }

@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/30 17:37:41 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 15:58:54 by yunolee          ###   ########.fr       */
+/*   Created: 2021/06/03 16:14:53 by yunolee           #+#    #+#             */
+/*   Updated: 2021/06/12 20:01:38 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstnew(void *content)
 {
-	char	*str;
-	char	*ret;
-	size_t	i;
+	t_list	*new;
 
-	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (str == NULL)
+	new = (t_list*)malloc(sizeof(t_list));
+	if (new == NULL)
 		return (NULL);
-	ret = str;
-	i = 0;
-	while (s1[i])
-		*str++ = s1[i++];
-	i = 0;
-	while (s2[i])
-		*str++ = s2[i++];
-	*str = 0;
-	return (ret);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

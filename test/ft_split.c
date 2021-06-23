@@ -6,11 +6,18 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 01:34:50 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 19:15:47 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/23 20:20:23 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	free_split(char **str, int n)
+{
+	while (--n >= 0)
+		free(str[n]);
+	free(str);
+}
 
 int		count_split(char const *s, char c)
 {
@@ -69,19 +76,21 @@ char	**ft_split(char const *s, char c)
 	int		n;
 
 	cnt = count_split(s, c);
-	str = (char**)malloc(cnt * sizeof(char*) + 1);
+	str = (char**)malloc((cnt + 1) * sizeof(char*));
 	if (str == NULL)
 		return (NULL);
 	i = 0;
-	n = 0;
-	while (n < cnt)
+	n = -1;
+	while (++n < cnt)
 	{
 		while (s[i] != 0 && s[i] == c)
 			i++;
 		str[n] = find_word(s, &i, c);
 		if (str[n] == NULL)
+		{
+			free_split(str, n);
 			return (NULL);
-		n++;
+		}
 	}
 	str[cnt] = 0;
 	return (str);

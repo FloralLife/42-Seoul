@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 02:22:10 by yunolee           #+#    #+#             */
-/*   Updated: 2021/06/05 17:07:53 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/06/23 23:07:52 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strchr(const char *str, int c)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == c)
+		if (str[i] == (char)c)
 			return ((char*)str + i);
 		i++;
 	}
-	if (str[i] == c)
+	if (str[i] == (char)c)
 		return ((char*)str + i);
 	return (0);
 }
