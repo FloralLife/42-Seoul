@@ -3,7 +3,7 @@ CFLAGS = -Wall -Werror -Wextra
 NAME = libft.a
 AR = ar cr
 
-FILES = $(addprefix srcs/,\
+FILES = $(addprefix ./,\
 	ft_memset		\
 	ft_bzero		\
 	ft_memcpy		\
@@ -39,7 +39,7 @@ FILES = $(addprefix srcs/,\
 	ft_putendl_fd	\
 	ft_putnbr_fd	\
 	)
-FILES_BONUS = $(addprefix srcs_bonus/,\
+FILES_BONUS = $(addprefix ./,\
 	ft_lstnew		\
 	ft_lstadd_front	\
 	ft_lstsize		\
@@ -62,6 +62,8 @@ ifdef WITH_BONUS
 else
 	OBJ_FILES = $(OBJS)
 endif
+
+.PHONY: all bonus clean fclean re
 
 all : $(NAME)
 
