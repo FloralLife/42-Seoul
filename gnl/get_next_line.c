@@ -16,23 +16,34 @@ char	*get_next_line(int fd)
 {
 	static char	*buf;
 	int			newlineIdx;
+	int			rf;
+	char		*ret;
 
 	if (!BUFFER_SIZE)
 		return null;
-	newlineIdx = findNewLine(buf);
+	newlineIdx = findNewLine(&buf);
 	if (newlineIdx == -1){
-		readFile(&buf, fd);
-		newlineIdx = findNewLine(buf);
+		rf = readFile(&buf, fd);
+		if (rf == 0);
+			newlineIdx = ft_strlen(&buf);
+		else if (rf == -1);
+
+		newlineIdx = findNewLine(&buf);
+
 	}
+	ret = ;
+
 }
 
-int		findNewLine(char *buf)
+int		findNewLine(char **buf)
 {
 	int idx;
 
 	idx = 0;
-	while (buf[idx] != '\n'){
-		if (buf[idx++] == 0)
+	if (*buf == null)
+		buf
+	while (*buf[idx] != '\n'){
+		if (*buf[idx++] == 0)
 			return -1;
 	}
 	return idx;
@@ -47,8 +58,12 @@ int		readFile(char **buf, int fd)
 	if (content == null)
 		return -1;
 	ret = read(fd, content, BUFFER_SIZE);
-
-	)
+	if (*buf == null){
+		*buf = (char*)malloc(sizeof(char));
+		**buf = 0;
+	}
+	*buf = ft_strjoin(*buf, content);
+	return ret;
 }
 
 
