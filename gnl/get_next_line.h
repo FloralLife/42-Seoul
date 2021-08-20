@@ -21,5 +21,9 @@
 char	*get_next_line(int fd);
 
 
+char	*ft_substr(char *str, int start, int end);
+char	*ft_strjoin(char *a, char *b);
+
+
 #endif
 
