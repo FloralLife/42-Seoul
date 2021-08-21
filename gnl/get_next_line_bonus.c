@@ -14,11 +14,13 @@
 
 char	*get_next_line(int fd)
 {
-	static char	*buf = NULL;
+	static char	*bufs[OPENMAX];
+	char		*buf;
 	int			newline_idx;
 
 	if (!BUFFER_SIZE || (fd < 0 || fd > OPENMAX))
 		return (NULL);
+	buf = bufs[fd];
 	newline_idx = get_next_buffer(&buf, fd);
 	if (newline_idx == -1)
 		return (NULL);
