@@ -15,19 +15,17 @@
 char	*get_next_line(int fd)
 {
 	static char	*bufs[OPENMAX];
-	char		*buf;
 	int			newline_idx;
 
 	if (!BUFFER_SIZE || (fd < 0 || fd > OPENMAX))
 		return (NULL);
-	buf = bufs[fd];
-	newline_idx = get_next_buffer(&buf, fd);
+	newline_idx = get_next_buffer(&bufs[fd], fd);
 	if (newline_idx == -1)
 		return (NULL);
-	return (get_nl(&buf, newline_idx));
+	return (get_nl(&bufs[fd], newline_idx));
 }
 
-int		get_next_buffer(char **buf, int fd)
+int	get_next_buffer(char **buf, int fd)
 {
 	int	rf;
 	int	newline_idx;
@@ -40,9 +38,8 @@ int		get_next_buffer(char **buf, int fd)
 			newline_idx = ft_strlen(*buf);
 		else if (rf == -1)
 			return (-1);
-		else{
+		else
 			newline_idx = find_newline_Idx(buf);
-		}
 	}
 	return (newline_idx);
 }
@@ -54,7 +51,7 @@ int		find_newline_Idx(char **buf)
 	idx = 0;
 	if (*buf == NULL)
 	{
-		*buf = (char *)malloc(sizeof(char));
+		*buf = (char*)malloc(sizeof(char));
 		*buf[0] = 0;
 	}
 	while ((*buf)[idx] != '\n')

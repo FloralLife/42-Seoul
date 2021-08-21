@@ -25,7 +25,7 @@ char	*get_next_line(int fd)
 	return (get_nl(&buf, newline_idx));
 }
 
-int		get_next_buffer(char **buf, int fd)
+int	get_next_buffer(char **buf, int fd)
 {
 	int	rf;
 	int	newline_idx;
@@ -38,14 +38,13 @@ int		get_next_buffer(char **buf, int fd)
 			newline_idx = ft_strlen(*buf);
 		else if (rf == -1)
 			return (-1);
-		else{
+		else
 			newline_idx = find_newline_Idx(buf);
-		}
 	}
 	return (newline_idx);
 }
 
-int		find_newline_Idx(char **buf)
+int	find_newline_Idx(char **buf)
 {
 	int idx;
 
@@ -56,11 +55,8 @@ int		find_newline_Idx(char **buf)
 		*buf[0] = 0;
 	}
 	while ((*buf)[idx] != '\n')
-	{
-		if ((*buf)[idx] == 0)
+		if ((*buf)[idx++] == 0)
 			return (-1);
-		idx++;
-	}
 	return (idx);
 }
 
@@ -71,10 +67,15 @@ int		read_file(char **buf, int fd)
 
 	content = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (content == NULL)
+	{
+		free(*buf);
 		return (-1);
+	}
 	ret = read(fd, content, BUFFER_SIZE);
 	content[ret] = 0;
 	*buf = ft_strjoin(*buf, content);
+	if (*buf == NULL)
+		return (-1);
 	return (ret);
 }
 

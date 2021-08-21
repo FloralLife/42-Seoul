@@ -54,15 +54,18 @@ char	*ft_strjoin(char *a, char *b)
 	alen = ft_strlen(a);
 	blen = ft_strlen(b);
 	ret = (char*)malloc(sizeof(char) * (alen + blen + 1));
-	i = 0;
-	while (i < alen + blen){
-		if (i < alen)
-			ret[i] = a[i];
-		else
-			ret[i] = b[i - alen];
-		i++;
+	if (ret != NULL)
+	{
+		i = 0;
+		while (i < alen + blen){
+			if (i < alen)
+				ret[i] = a[i];
+			else
+				ret[i] = b[i - alen];
+			i++;
+		}
+		ret[i] = 0;
 	}
-	ret[i] = 0;
 	free(a);
 	free(b);
 	return (ret);
