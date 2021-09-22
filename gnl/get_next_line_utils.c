@@ -12,9 +12,9 @@
 
 #include "get_next_line.h"
 
-int		ft_strlen(char *str)
+int ft_strlen(char *str)
 {
-	int	len;
+	int len;
 
 	len = 0;
 	while (*str++)
@@ -22,20 +22,21 @@ int		ft_strlen(char *str)
 	return (len);
 }
 
-char	*ft_substr(char *str, int start, int end)
+char *ft_substr(char *str, int start, int end)
 {
-	char	*ret;
-	int		len;
-	int		i;
+	char *ret;
+	int len;
+	int i;
 
 	len = ft_strlen(str);
 	if (len < end)
 		end = len;
-	ret = (char*)malloc(sizeof(char) * (end - start + 1));
+	ret = (char *)malloc(sizeof(char) * (end - start + 1));
 	if (ret == NULL)
 		return (NULL);
 	i = 0;
-	while (i < end){
+	while (i < end)
+	{
 		if (i >= start)
 			ret[i - start] = str[i];
 		i++;
@@ -44,20 +45,21 @@ char	*ft_substr(char *str, int start, int end)
 	return (ret);
 }
 
-char	*ft_strjoin(char *a, char *b)
+char *ft_strjoin(char *a, char *b)
 {
-	int		i;
-	int		alen;
-	int		blen;
-	char	*ret;
+	int i;
+	int alen;
+	int blen;
+	char *ret;
 
 	alen = ft_strlen(a);
 	blen = ft_strlen(b);
-	ret = (char*)malloc(sizeof(char) * (alen + blen + 1));
+	ret = (char *)malloc(sizeof(char) * (alen + blen + 1));
 	if (ret != NULL)
 	{
 		i = 0;
-		while (i < alen + blen){
+		while (i < alen + blen)
+		{
 			if (i < alen)
 				ret[i] = a[i];
 			else
@@ -65,8 +67,8 @@ char	*ft_strjoin(char *a, char *b)
 			i++;
 		}
 		ret[i] = 0;
+		free(a);
 	}
-	free(a);
 	free(b);
 	return (ret);
 }

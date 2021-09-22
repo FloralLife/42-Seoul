@@ -19,13 +19,13 @@ char	*get_next_line(int fd)
 
 	if (!BUFFER_SIZE || (fd < 0 || fd > OPENMAX))
 		return (NULL);
-	newline_idx = get_next_buffer(&buf, fd);
+	newline_idx = find_next_line(&buf, fd);
 	if (newline_idx == -1)
 		return (NULL);
 	return (get_nl(&buf, newline_idx));
 }
 
-int	get_next_buffer(char **buf, int fd)
+int	find_next_line(char **buf, int fd)
 {
 	int	rf;
 	int	newline_idx;
@@ -63,18 +63,18 @@ int	find_newline_Idx(char **buf)
 int		read_file(char **buf, int fd)
 {
 	char	*content;
+	char	*joinStr;
 	int		ret;
 
 	content = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (content == NULL)
-	{
-		free(*buf);
 		return (-1);
-	}
 	ret = read(fd, content, BUFFER_SIZE);
 	content[ret] = 0;
-	*buf = ft_strjoin(*buf, content);
-	if (*buf == NULL)
+	joinStr = ft_strjoin(*buf, content);
+	if (joinstr != NULL)
+		*buf = joinStr;
+	else
 		return (-1);
 	return (ret);
 }

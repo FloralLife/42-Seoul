@@ -9,4 +9,6 @@ int main(){
 		if (gnl == NULL) break;
 		printf("%s\n", gnl);
 	}
+	free(gnl);
+	while(1);
 }
