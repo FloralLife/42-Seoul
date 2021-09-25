@@ -10,5 +10,4 @@ int main(){
 		printf("%s\n", gnl);
 	}
 	free(gnl);
-	while(1);
 }

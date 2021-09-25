@@ -72,7 +72,7 @@ int		read_file(char **buf, int fd)
 	ret = read(fd, content, BUFFER_SIZE);
 	content[ret] = 0;
 	joinStr = ft_strjoin(*buf, content);
-	if (joinstr != NULL)
+	if (joinStr != NULL)
 		*buf = joinStr;
 	else
 		return (-1);

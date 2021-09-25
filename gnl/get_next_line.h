@@ -22,7 +22,7 @@
 
 char	*get_next_line(int fd);
 int		find_newline_Idx(char **buf);
-int		get_next_buffer(char **buf, int fd);
+int		find_next_line(char **buf, int fd);
 int		read_file(char **buf, int fd);
 char	*get_nl(char **buf, int newline_idx);
 
