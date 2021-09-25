@@ -85,10 +85,7 @@ char	*get_nl(char **buf, int newline_idx)
 	char	*ret;
 
 	if (ft_strlen(*buf) == 0)
-	{
-		free(*buf);
 		return (NULL);
-	}
 	ret = ft_substr(*buf, 0, newline_idx + 1);
 	newBuf = ft_substr(*buf, newline_idx + 1, ft_strlen(*buf));
 	free(*buf);
