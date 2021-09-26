@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:37:09 by yunolee           #+#    #+#             */
-/*   Updated: 2021/09/27 00:36:56 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/09/27 00:41:35 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,3 @@ char	*get_nl(char **buf, int newline_idx)
 	*buf = newBuf;
 	return (ret);
 }
-
