@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:35:49 by yunolee           #+#    #+#             */
-/*   Updated: 2021/08/19 16:35:49 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/09/26 23:35:41 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ char *ft_strjoin(char *a, char *b)
 			i++;
 		}
 		ret[i] = 0;
-		free(a);
 	}
-	free(b);
 	return (ret);
 }

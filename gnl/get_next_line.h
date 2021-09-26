@@ -6,14 +6,14 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:37:32 by yunolee           #+#    #+#             */
-/*   Updated: 2021/08/19 16:37:32 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/09/26 23:35:42 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define OPENMAX 1000
+# define OPENMAX 4096
 
 # include <unistd.h>
 # include <stdlib.h>

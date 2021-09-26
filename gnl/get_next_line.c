@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:37:09 by yunolee           #+#    #+#             */
-/*   Updated: 2021/08/19 16:37:09 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/09/26 23:35:32 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ char	*get_next_line(int fd)
 		return (NULL);
 	newline_idx = find_next_line(&buf, fd);
 	if (newline_idx == -1)
+	{
+		free(buf);
+		buf = NULL;
 		return (NULL);
+	}
 	return (get_nl(&buf, newline_idx));
 }
 
@@ -55,8 +59,11 @@ int	find_newline_Idx(char **buf)
 		*buf[0] = 0;
 	}
 	while ((*buf)[idx] != '\n')
-		if ((*buf)[idx++] == 0)
+	{
+		if ((*buf)[idx] == 0)
 			return (-1);
+		idx++;
+	}
 	return (idx);
 }
 
@@ -70,12 +77,18 @@ int		read_file(char **buf, int fd)
 	if (content == NULL)
 		return (-1);
 	ret = read(fd, content, BUFFER_SIZE);
+	if (ret == -1)
+	{
+		free(content);
+		return (-1);
+	}
 	content[ret] = 0;
 	joinStr = ft_strjoin(*buf, content);
-	if (joinStr != NULL)
-		*buf = joinStr;
-	else
+	free(content);
+	if (joinStr == NULL)
 		return (-1);
+	free(*buf);
+	*buf = joinStr;
 	return (ret);
 }
 
@@ -83,9 +96,12 @@ char	*get_nl(char **buf, int newline_idx)
 {
 	char	*newBuf;
 	char	*ret;
-
 	if (ft_strlen(*buf) == 0)
+	{
+		free(*buf);
+		*buf = NULL;
 		return (NULL);
+	}
 	ret = ft_substr(*buf, 0, newline_idx + 1);
 	newBuf = ft_substr(*buf, newline_idx + 1, ft_strlen(*buf));
 	free(*buf);
