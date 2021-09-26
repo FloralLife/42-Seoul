@@ -6,11 +6,11 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:35:49 by yunolee           #+#    #+#             */
-/*   Updated: 2021/09/27 00:40:22 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/09/27 00:43:10 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_strlen(char *str)
 {
