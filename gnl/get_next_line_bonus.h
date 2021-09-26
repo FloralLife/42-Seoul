@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:37:32 by yunolee           #+#    #+#             */
-/*   Updated: 2021/09/26 23:35:39 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/09/26 23:38:45 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-
-#include <stdio.h>
 
 char	*get_next_line(int fd);
 int		find_newline_Idx(char **buf);

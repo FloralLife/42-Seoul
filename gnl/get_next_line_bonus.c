@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:37:09 by yunolee           #+#    #+#             */
-/*   Updated: 2021/09/26 23:35:37 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/09/26 23:38:09 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*get_next_line(int fd)
 {
 	static char	*bufs[OPENMAX];
 	int			newline_idx;
-	printf("fd : [%d]\n", fd);
 	if (!BUFFER_SIZE || (fd < 0 || fd > OPENMAX))
 		return (NULL);
 	newline_idx = find_next_line(&bufs[fd], fd);
