@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:37:09 by yunolee           #+#    #+#             */
-/*   Updated: 2021/09/26 23:35:32 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/09/27 00:35:03 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	find_next_line(char **buf, int fd)
 
 int	find_newline_Idx(char **buf)
 {
-	int idx;
+	int	idx;
 
 	idx = 0;
 	if (*buf == NULL)
@@ -67,7 +67,7 @@ int	find_newline_Idx(char **buf)
 	return (idx);
 }
 
-int		read_file(char **buf, int fd)
+int	read_file(char **buf, int fd)
 {
 	char	*content;
 	char	*joinStr;
@@ -96,6 +96,7 @@ char	*get_nl(char **buf, int newline_idx)
 {
 	char	*newBuf;
 	char	*ret;
+
 	if (ft_strlen(*buf) == 0)
 	{
 		free(*buf);
@@ -106,5 +107,5 @@ char	*get_nl(char **buf, int newline_idx)
 	newBuf = ft_substr(*buf, newline_idx + 1, ft_strlen(*buf));
 	free(*buf);
 	*buf = newBuf;
-	return ret;
+	return (ret);
 }

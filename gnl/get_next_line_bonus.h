@@ -6,12 +6,12 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:37:32 by yunolee           #+#    #+#             */
-/*   Updated: 2021/09/26 23:38:45 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/09/27 00:38:14 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # define OPENMAX 4096
 
@@ -29,4 +29,3 @@ char	*ft_substr(char *str, int start, int end);
 char	*ft_strjoin(char *a, char *b);
 
 #endif
-

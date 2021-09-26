@@ -6,15 +6,15 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:35:49 by yunolee           #+#    #+#             */
-/*   Updated: 2021/09/26 23:35:40 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/09/27 00:40:22 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (*str++)
@@ -22,11 +22,11 @@ int ft_strlen(char *str)
 	return (len);
 }
 
-char *ft_substr(char *str, int start, int end)
+char	*ft_substr(char *str, int start, int end)
 {
-	char *ret;
-	int len;
-	int i;
+	char	*ret;
+	int		len;
+	int		i;
 
 	len = ft_strlen(str);
 	if (len < end)
@@ -45,12 +45,12 @@ char *ft_substr(char *str, int start, int end)
 	return (ret);
 }
 
-char *ft_strjoin(char *a, char *b)
+char	*ft_strjoin(char *a, char *b)
 {
-	int i;
-	int alen;
-	int blen;
-	char *ret;
+	int		i;
+	int		alen;
+	int		blen;
+	char	*ret;
 
 	alen = ft_strlen(a);
 	blen = ft_strlen(b);

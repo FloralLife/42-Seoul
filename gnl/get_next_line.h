@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:37:32 by yunolee           #+#    #+#             */
-/*   Updated: 2021/09/26 23:38:50 by yunolee          ###   ########.fr       */
+/*   Updated: 2021/09/27 00:35:40 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ char	*ft_substr(char *str, int start, int end);
 char	*ft_strjoin(char *a, char *b);
 
 #endif
-
