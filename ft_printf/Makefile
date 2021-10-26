@@ -1,9 +1,14 @@
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
-NAME = libft.a
+NAME = libftprintf.a
 AR = ar cr
 
-FILES = $(addprefix ./,	)
+FILES = $(addprefix ./,	\
+	ft_printf	\
+	print_char	\
+	print_string	\
+	print_number	\
+	)
 
 SRCS = $(addsuffix .c, $(FILES))
 
@@ -13,11 +18,11 @@ OBJS = $(SRCS:%.c=%.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ_FILES)
+$(NAME) : $(OBJS)
 	$(AR) $@ $^
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -I ./includes -o $@
+	$(CC) $(CFLAGS) -c $< -I ./ -o $@
 
 clean :
 	rm -f $(OBJS)
