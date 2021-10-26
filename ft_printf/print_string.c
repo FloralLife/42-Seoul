@@ -16,6 +16,11 @@ void	ft_putstr(char *str, int *len)
 {
 	int	i;
 
+	if (str == NULL)
+	{
+		ft_putstr("(null)", len);
+		return ;
+	}
 	i = 0;
 	while (str[i])
 		ft_putchar(str[i++], len);

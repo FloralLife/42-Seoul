@@ -24,6 +24,11 @@ void	ft_putptr(void *ptr, int *len)
 {
 	unsigned long	pointer;
 
+	if (ptr == NULL)
+	{
+		ft_putstr("(nil)", len);
+		return ;
+	}
 	pointer = (unsigned long)ptr;
 	ft_putstr("0x", len);
 	if (pointer == 0)

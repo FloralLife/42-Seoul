@@ -16,7 +16,7 @@
 int main(){
 	int i= -123;
 	char c = '2';
-	char str[23] = "";
+	char *str = NULL;
 	unsigned int ui = 123;
 
 	// ft_printf("%%c : %c\n", c);
@@ -24,12 +24,12 @@ int main(){
 	// ft_printf("%%p : %p\n", &i);
 	// ft_printf("%%d : %d\n", i);
 	// ft_printf("%%i : %i\n", i);
-	// ft_printf("%%u : %u\n", ui);
+	// ft_printf("%%u : %u\n", u
 	// ft_printf("%%x : %x\n", i);
 
 
 
-	ft_printf("%%c : %c\n%%s : %s\n%%p : %p\n%%d : %d\n%%i : %i\n%%u : %u\n%%x : %x\n%%X : %X\n\n", c, str, &i, i, i, ui, i, i);
-	printf("%%c : %c\n%%s : %s\n%%p : %p\n%%d : %d\n%%i : %i\n%%u : %u\n%%x : %x\n%%X : %X\n", c, str, &i, i, i, ui, i, i);
+	ft_printf("%%c : %c\n%%s : %s\n%%p : %p\n%%d : %d\n%%i : %i\n%%u : %u\n%%x : %x\n%%X : %X\n\n", c, str, NULL, i, i, ui, i, i);
+	printf("%%c : %c\n%%s : %s\n%%p : %p\n%%d : %d\n%%i : %i\n%%u : %u\n%%x : %x\n%%X : %X\n", c, str, NULL, i, i, ui, i, i);
 
 }
