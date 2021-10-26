@@ -51,12 +51,7 @@ void	ft_putxnbr(int n, int *len, int upper)
 	unsigned int	num;
 
 	num = n;
-	if (n < 0)
-	{
-		num = -n;
-		ft_putchar('-', len);
-	}
-	else if (n == 0)
+	if (n == 0)
 		ft_putchar('0', len);
 	write_xnbr(num, len, upper);
 }

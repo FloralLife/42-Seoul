@@ -14,7 +14,7 @@
 #include <limits.h>
 
 int main(){
-	int i= 134125;
+	int i= -123;
 	char c = '2';
 	char str[23] = "";
 	unsigned int ui = 123;
