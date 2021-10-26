@@ -26,9 +26,9 @@ void	write_xnbr(unsigned int num, int *len, int upper)
 		return ;
 	write_xnbr(num / 16, len, upper);
 	if (upper)
-		ft_putchar(HEX[num % 16], len);
+		ft_putchar(HEX_UPPER[num % 16], len);
 	else
-		ft_putchar(hex[num % 16], len);
+		ft_putchar(HEX_LOWER[num % 16], len);
 }
 
 void	ft_putnbr(int n, int *len)

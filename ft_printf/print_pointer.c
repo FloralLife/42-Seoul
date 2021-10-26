@@ -17,7 +17,7 @@ void	write_ptr(unsigned long ptr, int *len)
 	if (ptr == 0)
 		return ;
 	write_ptr(ptr / 16, len);
-	ft_putchar(hex[ptr % 16], len);
+	ft_putchar(HEX_LOWER[ptr % 16], len);
 }
 
 void	ft_putptr(void *ptr, int *len)
