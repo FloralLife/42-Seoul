@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
 
 int main(){
-	int i= 32;
+	int i= 134125;
 	char c = '2';
-	char str[23] = "helloworld";
+	char str[23] = "";
 	unsigned int ui = 123;
 
 	// ft_printf("%%c : %c\n", c);
@@ -28,6 +29,7 @@ int main(){
 
 
 
-	ft_printf("%%c : %c\n%%s : %s\n%%p : %p\n%%d : %d\n%%i : %i\n%%u : %u\n%%x : %x\n%%x : %x\n", c, str, &i, i, i, ui, i);
+	ft_printf("%%c : %c\n%%s : %s\n%%p : %p\n%%d : %d\n%%i : %i\n%%u : %u\n%%x : %x\n%%X : %X\n\n", c, str, &i, i, i, ui, i, i);
+	printf("%%c : %c\n%%s : %s\n%%p : %p\n%%d : %d\n%%i : %i\n%%u : %u\n%%x : %x\n%%X : %X\n", c, str, &i, i, i, ui, i, i);
 
 }

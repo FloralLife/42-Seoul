@@ -17,12 +17,16 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
+#define HEX "0123456789ABCDEF"
+#define hex "0123456789abcdef"
+
 # include <stdio.h>
 
 int		ft_printf(const char *format, ...);
 void	ft_putchar(char c, int *len);
 void	ft_putstr(char *str, int *len);
-void	ft_putnbr(int n, int *len, int notation);
+void	ft_putnbr(int n, int *len);
+void	ft_putxnbr(int n, int *len, int upper);
 void	ft_putunbr(unsigned int n, int *len);
 void	ft_putptr(void *ptr, int *len);
 

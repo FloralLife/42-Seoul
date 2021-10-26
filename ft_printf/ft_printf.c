@@ -25,11 +25,13 @@ void	print_type(const char *format, int *i, va_list args, int *len)
 	else if (type == 'p')
 		ft_putptr(va_arg(args, void *), len);
 	else if (type == 'd' || type == 'i')
-		ft_putnbr(va_arg(args, int), len, 10);
+		ft_putnbr(va_arg(args, int), len);
 	else if (type == 'u')
 		ft_putunbr(va_arg(args, unsigned int), len);
+	else if (type == 'X')
+		ft_putxnbr(va_arg(args, int), len, 1);
 	else if (type == 'x')
-		ft_putnbr(va_arg(args, int), len, 16);
+		ft_putxnbr(va_arg(args, int), len, 0);
 	else if (type == '%')
 		ft_putchar('%', len);
 }

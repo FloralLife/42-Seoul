@@ -8,6 +8,7 @@ FILES = $(addprefix ./,	\
 	print_char	\
 	print_string	\
 	print_number	\
+	print_pointer	\
 	)
 
 SRCS = $(addsuffix .c, $(FILES))
