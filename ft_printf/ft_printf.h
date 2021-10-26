@@ -17,8 +17,8 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
-#define HEX_UPPER "0123456789ABCDEF"
-#define HEX_LOWER "0123456789abcdef"
+# define HEX_UPPER "0123456789ABCDEF"
+# define HEX_LOWER "0123456789abcdef"
 
 # include <stdio.h>
 
