@@ -20,8 +20,6 @@
 # define HEX_UPPER "0123456789ABCDEF"
 # define HEX_LOWER "0123456789abcdef"
 
-# include <stdio.h>
-
 int		ft_printf(const char *format, ...);
 void	ft_putchar(char c, int *len);
 void	ft_putstr(char *str, int *len);
