@@ -50,7 +50,7 @@ int	main(int argc, char *argv[])
 	}
 	pid = ft_atoi(argv[1]);
 	msg = argv[2];
-	if (pid <= 100 || pid >= 32768)
+	if (pid <= 100 || pid >= 4194304)
 	{
 		ft_putstr("Bad Request\n");
 		return (0);
