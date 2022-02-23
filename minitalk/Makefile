@@ -11,7 +11,6 @@ FG_LBLUE   = \e[94m
 FG_MAGENTA = \e[35m
 NO_COLOR   = \e[0m
 
-
 SERVER_FILES = $(addprefix srcs/,	\
 	server	\
 )

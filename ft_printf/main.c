@@ -39,11 +39,6 @@ int main(){
 
 
 
-	printf("%d\n",printf("%%c : %c\n%%s : %s\n%%p : %p\n%%d : %d\n%%i : %i\n%%u : %u\n%%x : %x\n%%X : %X\n\n", c, str, &i, i, i, ui, i, i));
-	printf("%d\n",ft_printf("%%c : %c\n%%s : %s\n%%p : %p\n%%d : %d\n%%i : %i\n%%u : %u\n%%x : %x\n%%X : %X\n\n", c, str, &i, i, i, ui, i, i));
-
-	while(1);
-
-
-
+	printf("%d\n", printf("%%c : %c\n%%s : %s\n%%p : %p\n%%d : %d\n%%i : %i\n%%u : %u\n%%x : %x\n%%X : %X\n\n", c, str, &i, i, i, ui, i, i));
+	printf("%d\n", ft_printf("%%c : %c\n%%s : %s\n%%p : %p\n%%d : %d\n%%i : %i\n%%u : %u\n%%x : %x\n%%X : %X\n\n", c, str, &i, i, i, ui, i, i));
 }
