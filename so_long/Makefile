@@ -15,8 +15,12 @@ NO_COLOR	=	\e[0m
 
 FILES	=	$(addprefix srcs/,	\
 	so_long			\
-	utils			\
+	validate		\
+	read_map		\
 	get_next_line	\
+	utils			\
+	print			\
+	error			\
 )
 SRCS	=	$(addsuffix .c, $(FILES))
 OBJS	=	$(SRCS:%.c=%.o)
@@ -27,14 +31,14 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CC) $^ $(LIBFT) $(MLXFLAGS) $(CFLAGS) -I $(INCLUDE) -o $(NAME)
-
-%.o : %.c
-	$(CC) $(CFLAGS) -I ./mlx $(INCLUDE) -c $< -o $@
 	@printf "${FG_GREEN}build success\n${NO_COLOR}"
 
+%.o : %.c
+	$(CC) $(CFLAGS) -I ./mlx -I $(INCLUDE) -c $< -o $@
+
 play : all
-	@./$(NAME) maps/map.ber
 	@printf "${FG_LBLUE}PLAY!!!!\n${NO_COLOR}"
+	@./$(NAME) maps/map.ber
 
 clean :
 	$(RM) $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 03:01:16 by yunolee           #+#    #+#             */
-/*   Updated: 2022/03/30 03:07:28 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/03/30 22:33:22 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	write_nbr(unsigned int num)
 	ft_putchar(num % 10 + '0');
 }
 
-void	ft_putnbr(int n, int *len)
+void	ft_putnbr(int n)
 {
 	unsigned int	num;
 

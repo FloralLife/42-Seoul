@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/29 23:49:13 by yunolee           #+#    #+#             */
-/*   Updated: 2022/03/31 03:52:52 by yunolee          ###   ########.fr       */
+/*   Created: 2022/03/30 22:02:29 by yunolee           #+#    #+#             */
+/*   Updated: 2022/03/30 22:04:53 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	errorHandler(char *str)
 {
-	char	**map;
-
-	if (argc != 2)
-		errorHandler("Unvalid Input ");
-	checkFileName(argv[1]);
-	map = readMap(argv[1]);
-	int i = 8;
-	while (i--){
-		printf("%s\n",map[i]);
-	}
-
-
+	perror(str);
+	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:37:09 by yunolee           #+#    #+#             */
-/*   Updated: 2022/03/29 23:48:43 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/03/30 23:07:02 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,14 +87,14 @@ char	*get_nl(char **buf, int newline_idx)
 		*buf = NULL;
 		return (NULL);
 	}
-	ret = ft_substr(*buf, 0, newline_idx + 1);
+	ret = ft_substr(*buf, 0, newline_idx);
 	newBuf = ft_substr(*buf, newline_idx + 1, ft_strlen(*buf));
 	free(*buf);
 	*buf = newBuf;
 	return (ret);
 }
 
-char	*get_next_line(int fd)
+char	*getNextLine(int fd)
 {
 	static char	*buf = NULL;
 	int			newline_idx;
