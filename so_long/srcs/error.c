@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 22:02:29 by yunolee           #+#    #+#             */
-/*   Updated: 2022/03/30 22:04:53 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/01 14:43:13 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	errorHandler(char *str)
 {
+	ft_putError("Error\n");
 	perror(str);
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 03:23:17 by yunolee           #+#    #+#             */
-/*   Updated: 2022/03/31 04:15:41 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/01 15:14:12 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_size	readMapSize(char *mapFileName)
 		if (size.width == 0)
 			size.width = len;
 		else if (size.width != len)
-			errorHandler("Unvalid Map ");
+			errorHandler("Invalid Map ");
 		free(buf);
 		size.height++;
 	}
@@ -48,21 +48,20 @@ t_mapInfo	readMap(char *mapFileName)
 
 	fd = open(mapFileName, O_RDONLY);
 	if (fd == -1)
-		errorHandler("Unvalid Filename ");
+		errorHandler("Invalid Filename ");
 	mapInfo.size = readMapSize(mapFileName);
 	mapInfo.map = (char **)malloc(mapInfo.size.height * sizeof(char *));
 	if (mapInfo.map == NULL)
 		errorHandler("Allocation Fail ");
 	idx = 0;
-	printf("(%d, %d)\n", mapInfo.size.width, mapInfo.size.height);
 	while (1)
 	{
 		buf = getNextLine(fd);
-		printf("%s\n", buf);
 		if (buf == NULL)
 			break ;
 		mapInfo.map[idx++] = buf;
 	}
 	close(fd);
+	validateMap(mapInfo);
 	return (mapInfo);
 }
