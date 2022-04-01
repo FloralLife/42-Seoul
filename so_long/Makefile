@@ -17,8 +17,10 @@ FILES	=	$(addprefix srcs/,	\
 	so_long			\
 	validate		\
 	read_map		\
+	draw			\
 	get_next_line	\
 	utils			\
+	free			\
 	print			\
 	error			\
 )

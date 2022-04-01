@@ -46,7 +46,7 @@ struct s_col_name mlx_col_name[] =
  { "misty rose" , 0xffe4e1 },
  { "mistyrose" , 0xffe4e1 },
  { "white" , 0xffffff },
- { "black" , 0x0 },
+ { "#000000" , 0x0 },
  { "dark slate" , 0x2f4f4f },
  { "darkslategray" , 0x2f4f4f },
  { "dark slate" , 0x2f4f4f },

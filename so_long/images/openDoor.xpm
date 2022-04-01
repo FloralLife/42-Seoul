@@ -199,7 +199,7 @@ static char *result[] = {
 "&X c #E2E2E3",
 "*X c #F4F1EE",
 "=X c #F5F5F5",
-"-X c black",
+"-X c #000000",
 /* pixels */
 "-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-XXX{.c a p a @ Z Q Z P oX-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X",
 "-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X=X$XV.m.n.W.!.R.S.;.p.u.Q  .P OX-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X",

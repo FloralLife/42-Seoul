@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 03:09:15 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/01 16:40:03 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:57:26 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ void	checkFileName(char *fileName)
 		errorHandler("Invalid FileName ");
 }
 
-void	checkSurrounded(int i, int j, t_mapInfo mapInfo)
+void	checkSurrounded(int row, int col, t_mapInfo mapInfo)
 {
-	if (i == 0 || i == mapInfo.size.height - 1)
+	if (row == 0 || row == mapInfo.size.height - 1)
 	{
-		if (mapInfo.map[i][j] != '1')
+		if (mapInfo.map[row][col] != '1')
 		{
 			freeMap(mapInfo);
 			errorHandler("Not Surrounded Map ");
 		}
 	}
-	else if (j == 0 || j == mapInfo.size.width - 1)
+	else if (col == 0 || col == mapInfo.size.width - 1)
 	{
-		if (mapInfo.map[i][j] != '1')
+		if (mapInfo.map[row][col] != '1')
 		{
 			freeMap(mapInfo);
 			errorHandler("Not Surrounded Map ");

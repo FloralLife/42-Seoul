@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:35:49 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/01 15:14:03 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/01 18:34:21 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,4 @@ char	*ft_strjoin(char *a, char *b)
 		ret[i] = 0;
 	}
 	return (ret);
-}
-
-void	freeMap(t_mapInfo mapInfo)
-{
-	int	i;
-
-	i = mapInfo.size.height;
-	while (i--)
-		free(mapInfo.map[i]);
-	free(mapInfo.map);
 }
