@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 23:39:05 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/01 14:59:11 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:03:08 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ typedef struct s_mapInfo
 {
 	t_size	size;
 	char	**map;
+	int		numOfCollectible;
 }	t_mapInfo;
+
+char		*getNextLine(int fd);
+
+void		validateMap(t_mapInfo mapInfo);
+void		checkFileName(char *fileName);
 
 int			ft_strlen(char *str);
 char		*ft_substr(char *str, int start, int end);
@@ -43,15 +49,14 @@ char		*ft_strjoin(char *a, char *b);
 void		freeMap(t_mapInfo mapInfo);
 
 void		errorHandler(char *str);
-void		checkFileName(char *fileName);
+void		mlxErrorHandler(t_mapInfo mapInfo);
 
 void		ft_putchar(char c, int fd);
 void		ft_putstr(char *str);
 void		ft_putError(char *errMsg);
 void		ft_putnbr(int num);
 
-char		*getNextLine(int fd);
-void		validateMap(t_mapInfo mapInfo);
+
 t_mapInfo	readMap(char *mapFileName);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 03:09:15 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/01 15:18:31 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/01 16:40:03 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,23 @@ void	validateMap(t_mapInfo mapInfo)
 	int	cntE;
 	int	cntC;
 
-	i = 0;
 	cntP = 0;
 	cntE = 0;
 	cntC = 0;
-	while (i < mapInfo.size.height)
+	i = -1;
+	while (++i < mapInfo.size.height)
 	{
-		j = 0;
-		while (j < mapInfo.size.width)
+		j = -1;
+		while (++j < mapInfo.size.width)
 		{
 			checkSurrounded(i, j, mapInfo);
 			countCharacters(mapInfo.map[i][j], &cntP, &cntE, &cntC);
-			j++;
 		}
-		i++;
 	}
 	if (cntP < 1 || cntE < 1 || cntC < 1)
 	{
 		freeMap(mapInfo);
 		errorHandler("Invalid Character Numbers ");
 	}
+	mapInfo.numOfCollectible = cntC;
 }
