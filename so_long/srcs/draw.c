@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 18:14:36 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/01 20:51:41 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/02 20:26:00 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	initImg(t_mlx *mlx)
 {
 	mlx->blockSize = 48;
+	mlx->time = 0;
 	mlx->img.pacman[0] = mlx_xpm_file_to_image(mlx->ptr, "images/pacman0.xpm",
 			&mlx->blockSize, &mlx->blockSize);
 	mlx->img.pacman[1] = mlx_xpm_file_to_image(mlx->ptr, "images/pacman1.xpm",
@@ -23,9 +24,9 @@ void	initImg(t_mlx *mlx)
 			&mlx->blockSize, &mlx->blockSize);
 	mlx->img.pacman[3] = mlx_xpm_file_to_image(mlx->ptr, "images/pacman1.xpm",
 			&mlx->blockSize, &mlx->blockSize);
-	mlx->img.enemy[0] = mlx_xpm_file_to_image(mlx->ptr, "images/ghost1.xpm",
+	mlx->img.ghost[0] = mlx_xpm_file_to_image(mlx->ptr, "images/ghost1.xpm",
 			&mlx->blockSize, &mlx->blockSize);
-	mlx->img.enemy[1] = mlx_xpm_file_to_image(mlx->ptr, "images/ghost2.xpm",
+	mlx->img.ghost[1] = mlx_xpm_file_to_image(mlx->ptr, "images/ghost2.xpm",
 			&mlx->blockSize, &mlx->blockSize);
 	mlx->img.door[0] = mlx_xpm_file_to_image(mlx->ptr, "images/openDoor.xpm",
 			&mlx->blockSize, &mlx->blockSize);
@@ -39,6 +40,15 @@ void	initImg(t_mlx *mlx)
 			&mlx->blockSize, &mlx->blockSize);
 }
 
+void	drawSteps(t_mlx mlx, t_mapInfo mapInfo)
+{
+	char	*steps;
+
+	steps = ft_itoa(mapInfo.numOfStep);
+	mlx_string_put(mlx.ptr, mlx.winPtr, 20, 20, 0xDEDEDE, steps);
+	free(steps);
+}
+
 void	drawImage(t_mlx mlx, t_mapInfo mapInfo, int row, int col)
 {
 	if (mapInfo.map[row][col] == '1')
@@ -48,19 +58,19 @@ void	drawImage(t_mlx mlx, t_mapInfo mapInfo, int row, int col)
 		mlx_put_image_to_window(mlx.ptr, mlx.winPtr, mlx.img.floor,
 				col * BLOCKSIZE, row * BLOCKSIZE);
 	else if (mapInfo.map[row][col] == 'P')
-		mlx_put_image_to_window(mlx.ptr, mlx.winPtr, mlx.img.pacman[mlx.time % 4],
+		mlx_put_image_to_window(mlx.ptr, mlx.winPtr, mlx.img.pacman[mlx.time / 10 % 4],
 				col * BLOCKSIZE, row * BLOCKSIZE);
 	else if (mapInfo.map[row][col] == 'E')
 		mlx_put_image_to_window(mlx.ptr, mlx.winPtr,
-			mlx.img.door[mapInfo.numOfCollectible == 0],
+			mlx.img.door[mapInfo.numOfCollectible != 0],
 			col * BLOCKSIZE, row * BLOCKSIZE);
 	else if (mapInfo.map[row][col] == 'C')
 		mlx_put_image_to_window(mlx.ptr, mlx.winPtr, mlx.img.cherry,
 				col * BLOCKSIZE, row * BLOCKSIZE);
 	else if (mapInfo.map[row][col] == 'Y')
-		mlx_put_image_to_window(mlx.ptr, mlx.winPtr, mlx.img.enemy[mlx.time % 2],
+		mlx_put_image_to_window(mlx.ptr, mlx.winPtr, mlx.img.ghost[mlx.time / 10 % 2],
 				col * BLOCKSIZE, row * BLOCKSIZE);
-
+	drawSteps(mlx, mapInfo);
 }
 
 int	drawMap(t_mlx mlx, t_mapInfo mapInfo)
@@ -84,9 +94,8 @@ int	drawMap(t_mlx mlx, t_mapInfo mapInfo)
 
 int	exposeDraw(t_param *param)
 {
-	drawMap(param->mlx, param->mapInfo);
-	usleep(250000);
 	param->mlx.time++;
-	printf("%d\n", param->mlx.time);
+	param->mlx.time %= 100;
+	drawMap(param->mlx, param->mapInfo);
 	return (0);
 }

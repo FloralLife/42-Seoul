@@ -19,7 +19,11 @@ FILES	=	$(addprefix srcs/,	\
 	read_map		\
 	draw			\
 	get_next_line	\
+	key_input		\
+	enemy			\
 	utils			\
+	factory			\
+	ft_itoa			\
 	free			\
 	print			\
 	error			\

@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 03:23:17 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/01 15:14:12 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/02 19:59:18 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_mapInfo	readMap(char *mapFileName)
 		mapInfo.map[idx++] = buf;
 	}
 	close(fd);
-	validateMap(mapInfo);
+	validateMap(&mapInfo);
+	mapInfo.numOfStep = 0;
 	return (mapInfo);
 }

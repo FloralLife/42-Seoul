@@ -6,11 +6,35 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 23:49:13 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/01 20:51:21 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/02 20:26:48 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	exitWindow(t_param *param)
+{
+	ft_putstr("Game Closed!\n");
+	freeMap(param->mapInfo);
+	exit(0);
+	return (0);
+}
+
+void	exitGame(char *msg, t_mlx mlx, t_mapInfo mapInfo)
+{
+	freeMap(mapInfo);
+	destroyMlx(mlx);
+	ft_putstr(msg);
+	exit(0);
+}
+
+void	defeat(t_mlx mlx, t_mapInfo mapInfo)
+{
+	freeMap(mapInfo);
+	destroyMlx(mlx);
+	ft_putstr("You Lose!\n");
+	exit(0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -29,17 +53,13 @@ int	main(int argc, char **argv)
 			mapInfo.size.width * 48, mapInfo.size.height * 48, "SOLONG");
 	if (mlx.winPtr == NULL)
 		mlxErrorHandler(mapInfo);
-
 	initImg(&mlx);
+	mlxImageErrorCheck(mlx, mapInfo);
 	drawMap(mlx, mapInfo);
 	param.mapInfo = mapInfo;
 	param.mlx = mlx;
-
-	for(int i = 0; i < mapInfo.size.height; i++)
-	{
-		ft_putstr(mapInfo.map[i]);
-		ft_putchar('\n', 1);
-	}
+	mlx_hook(mlx.winPtr, KEY_PRESS_EVENT, 0, pressKey, &param);
+	mlx_hook(mlx.winPtr, KEY_DESTROY_NOTIFY, 0, exitWindow, &param);
 	mlx_loop_hook(mlx.ptr, exposeDraw, &param);
 	mlx_loop(mlx.ptr);
 

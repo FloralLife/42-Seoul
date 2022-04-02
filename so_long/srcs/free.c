@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 18:34:25 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/01 19:34:29 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/02 20:31:20 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ void	freeMap(t_mapInfo mapInfo)
 	while (i--)
 		free(mapInfo.map[i]);
 	free(mapInfo.map);
+	if (mapInfo.numOfEnemies > 0 && mapInfo.enemies)
+		free(mapInfo.enemies);
 }
 
-void	destroyImg(t_mlx mlx)
+void	destroyMlx(t_mlx mlx)
 {
 	int	i;
 
@@ -32,8 +34,8 @@ void	destroyImg(t_mlx mlx)
 			mlx_destroy_image(mlx.ptr, mlx.img.pacman[i]);
 	i = -1;
 	while (++i < 2)
-		if (mlx.img.enemy[i])
-			mlx_destroy_image(mlx.ptr, mlx.img.enemy[i]);
+		if (mlx.img.ghost[i])
+			mlx_destroy_image(mlx.ptr, mlx.img.ghost[i]);
 	i = -1;
 	while (++i < 2)
 		if (mlx.img.door[i])
@@ -44,4 +46,5 @@ void	destroyImg(t_mlx mlx)
 		mlx_destroy_image(mlx.ptr, mlx.img.wall);
 	if (mlx.img.floor)
 		mlx_destroy_image(mlx.ptr, mlx.img.floor);
+	mlx_destroy_window(mlx.ptr, mlx.winPtr);
 }
