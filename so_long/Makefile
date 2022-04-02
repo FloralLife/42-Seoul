@@ -1,4 +1,5 @@
 NAME		=	so_long
+NAME_BONUS	=	so_long_bonus
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -rf
@@ -28,33 +29,52 @@ FILES	=	$(addprefix srcs/,	\
 	print			\
 	error			\
 )
+
+FILES_BONUS	=	$(addprefix srcs_bonus/,	\
+	so_long_bonus		\
+	validate_bonus		\
+	read_map_bonus		\
+	draw_bonus			\
+	get_next_line_bonus	\
+	key_input_bonus		\
+	enemy_bonus			\
+	utils_bonus			\
+	factory_bonus		\
+	ft_itoa_bonus		\
+	free_bonus			\
+	print_bonus			\
+	error_bonus			\
+)
 SRCS	=	$(addsuffix .c, $(FILES))
 OBJS	=	$(SRCS:%.c=%.o)
 
-.PHONY : all clean fclean re
+SRCS_BONUS	=	$(addsuffix .c, $(FILES_BONUS))
+OBJS_BONUS	=	$(SRCS_BONUS:%.c=%.o)
+
+.PHONY : all clean fclean re bonus
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $^ $(LIBFT) $(MLXFLAGS) $(CFLAGS) -I $(INCLUDE) -o $(NAME)
+	$(CC) $^ $(MLXFLAGS) $(CFLAGS) -I $(INCLUDE) -o $(NAME)
 	@printf "${FG_GREEN}build success\n${NO_COLOR}"
 
 %.o : %.c
 	$(CC) $(CFLAGS) -I ./mlx -I $(INCLUDE) -c $< -o $@
 
-play : all
-	@printf "${FG_LBLUE}PLAY!!!!\n${NO_COLOR}"
-	@./$(NAME) maps/map.ber
-
 clean :
 	$(RM) $(OBJS)
+	$(RM) $(OBJS_BONUS)
 
 fclean : clean
 	$(RM) $(NAME)
+	$(RM) $(NAME_BONUS)
 	$(RM) *.out
 
 re : fclean all
 
-bonus : all
-	@./$(NAME) maps/map_bonus.ber
-	@printf "${FG_LBLUE}PLAY!!!!\n${NO_COLOR}"
+bonus : $(NAME_BONUS)
+
+$(NAME_BONUS) : $(OBJS_BONUS)
+	$(CC) $^ $(MLXFLAGS) $(CFLAGS) -I $(INCLUDE) -o $(NAME_BONUS)
+	@printf "${FG_GREEN}build success\n${NO_COLOR}"
