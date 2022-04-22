@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 04:31:50 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/22 04:31:50 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/22 17:18:20 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ void	add_cmd(t_stack *data, char *cmd)
 	tmp = NULL;
 	if (data->cmdlist->tail)
 		prevcmd = data->cmdlist->tail->cmd;
+	if (!ft_strcmp(cmd, "pa"))
+		data->a->head->is_sort += 1;
+	else if (!ft_strcmp(cmd, "pb"))
+		data->b->head->is_sort += 1;
+	else if (!ft_strcmp(cmd, "rb"))
+		data->b->tail->is_sort += 1;
 	if ((!ft_strcmp(cmd, "ra") && !ft_strcmp(prevcmd, "rra"))
 		|| (!ft_strcmp(cmd, "rra") && !ft_strcmp(prevcmd, "ra"))
 		|| (!ft_strcmp(cmd, "rb") && !ft_strcmp(prevcmd, "rrb"))

@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 04:27:45 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/22 04:27:45 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/22 17:24:36 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,15 +101,13 @@ void	sort_b_5(t_stack *data)
 	}
 	sort_b_3(data);
 	if (data->a->head->sort > data->a->head->next->sort
-		&& data->a->head->next->is_sort == FALSE)
+		&& data->a->head->next->is_sort != TRUE)
 		exec_cmd(data, "sa");
 	idx = -1;
 	while (++idx < sort_cnt)
 	{
 		if (data->b->head && data->b->head->sort == data->sorted + 1)
-		{
 			exec_cmd(data, "pa");
-		}
 		sort_a_head_to_tail(data);
 	}
 }

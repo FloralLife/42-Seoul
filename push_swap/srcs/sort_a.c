@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 04:27:36 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/22 04:27:36 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/22 16:53:29 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	sort_ab(t_stack *data)
 		&& data->b->head->sort > data->b->head->next->sort)
 		exec_cmd(data, "sb");
 	if (data->a->head->sort > data->a->head->next->sort
-		&& data->a->head->next->is_sort == FALSE)
+		&& data->a->head->next->is_sort != TRUE)
 		exec_cmd(data, "sa");
 }
 

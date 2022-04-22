@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 00:41:17 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/22 00:41:17 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/22 17:18:50 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,4 @@ void	listadd_front(t_list *list, t_node *new)
 		list->head = new;
 	}
 	list->size++;
-}
-
-
-void	print(t_list *list)
-{
-	t_node *tmp = list->head;
-	while (tmp)
-	{
-		printf("%d ", tmp->value);
-		tmp = tmp->next;
-	}
-	printf("\n");
 }

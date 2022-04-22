@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 23:28:37 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/21 23:28:37 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/22 17:18:54 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,6 @@ int	main(int argc, char **argv)
 		if (!is_ordered(data->a))
 			sort(data);
 		tmp = data->cmdlist->head;
-		// printf("final : ");
-		// print(data->a);
-		// print(data->b);
-		// printf("%d\n", data->sorted);
 		while (tmp)
 		{
 			ft_putstr(tmp->cmd);

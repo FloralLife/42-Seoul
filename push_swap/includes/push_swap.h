@@ -6,7 +6,7 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 22:31:22 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/21 22:31:22 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/22 17:28:55 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-
-#include <stdio.h>
 
 # define TRUE 1
 # define FALSE 0
@@ -59,8 +57,6 @@ typedef struct s_stack
 	int			sorted;
 	int			list_size;
 }	t_stack;
-
-void	print(t_list *list);
 
 void		parse_to_stack(t_stack *data, int size, char **input);
 

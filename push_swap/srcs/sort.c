@@ -6,18 +6,18 @@
 /*   By: yunolee <yunolee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 04:21:58 by yunolee           #+#    #+#             */
-/*   Updated: 2022/04/22 04:21:58 by yunolee          ###   ########.fr       */
+/*   Updated: 2022/04/22 17:24:56 by yunolee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_btoa(t_stack *data)
+void	sort_btoa(t_stack *data)
 {
-	int flag;
-	int sort_cnt;
-	int pivot;
-	int i;
+	int	flag;
+	int	sort_cnt;
+	int	pivot;
+	int	i;
 
 	flag = FALSE;
 	sort_cnt = data->b->size;
@@ -39,10 +39,10 @@ void sort_btoa(t_stack *data)
 	}
 }
 
-void sort_atob(t_stack *data)
+void	sort_atob(t_stack *data)
 {
-	int flag;
-	int is_sort;
+	int	flag;
+	int	is_sort;
 
 	flag = FALSE;
 	is_sort = data->a->head->is_sort;
@@ -57,10 +57,10 @@ void sort_atob(t_stack *data)
 	}
 }
 
-void seperate_ab(t_stack *data)
+void	seperate_ab(t_stack *data)
 {
-	int i;
-	int pivot;
+	int	i;
+	int	pivot;
 
 	i = -1;
 	pivot = data->list_size / 2 + 1;
@@ -80,7 +80,7 @@ void seperate_ab(t_stack *data)
 	sort_b_small3(data);
 }
 
-void sort_6(t_stack *data)
+void	sort_6(t_stack *data)
 {
 	if (data->a->size <= 3)
 		sort_a_3(data);
@@ -110,30 +110,15 @@ void	sort(t_stack *data)
 		seperate_ab(data);
 		while (!is_ordered(data->a) || !(data->list_size == data->sorted))
 		{
-			// printf("a: ");
-			// print(data->a);
-			// printf("b: ");
-			// print(data->b);
-			// printf("size : %d, sorted : %d\n", data->b->size, data->sorted);
 			if (data->b->size > 0 && data->b->size <= 5)
 				sort_b_5(data);
 			else if (data->b->size > 5)
-			{
-
-				// printf("hello\n");
 				sort_btoa(data);
-			}
-			else if (data->a->size - data->sorted > 0 && data->a->size - data->sorted <= 5)
-			{
-				// printf("hello1\n");
-
+			else if (data->a->size - data->sorted > 0
+				&& data->a->size - data->sorted <= 5)
 				sort_a_5(data);
-			}
 			else if (data->a->size - data->sorted > 5)
-			{
-				// printf("hello2\n");
 				sort_atob(data);
-			}
 		}
 	}
 }
